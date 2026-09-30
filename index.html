@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Party Cats</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <button id="soundToggle" class="sound-toggle" aria-label="切换音效">🔊</button>
+
+    <section id="welcomeView" class="view welcome-view">
+      <div class="confetti" aria-hidden="true"></div>
+      <div class="hero-mark"><span>🐾</span></div>
+      <p class="eyebrow">WEDDING PARTY GAME</p>
+      <h1 class="logo" aria-label="Party Cats">
+        <span>P</span><span>a</span><span>r</span><span>t</span><span>y</span>
+        <em></em>
+        <span>C</span><span>a</span><span>t</span><span>s</span>
+      </h1>
+      <p class="hero-copy">从马赛克后面，找到你最熟悉的那张小脸。</p>
+
+      <div class="rules-card">
+        <div><b>1</b><span>选择要寻找的猫咪</span></div>
+        <div><b>2</b><span>最多揭开 3 个区域</span></div>
+        <div><b>3</b><span>点击位置，确认答案</span></div>
+      </div>
+      <button id="startButton" class="primary-button">开始寻找 <span>→</span></button>
+    </section>
+
+    <section id="selectView" class="view select-view">
+      <header class="page-header">
+        <div>
+          <p class="eyebrow">CHOOSE YOUR CAT</p>
+          <h2>今天要找谁？</h2>
+        </div>
+        <p>先记住 TA 的样子，再去派对合影里找到 TA。</p>
+      </header>
+      <div id="catPicker" class="cat-picker"></div>
+    </section>
+
+    <section id="gameView" class="view game-view active">
+      <div class="game-topbar">
+        <div class="target-chip"><div><small>PARTY CATS</small><strong>看图认猫</strong></div></div>
+        <div class="turn-status">
+          <span>剩余揭图</span>
+          <div id="turnPaws" class="turn-paws" aria-label="剩余揭图次数"></div>
+        </div>
+        <button id="restartButton" class="ghost-button">下一题</button>
+      </div>
+
+      <div class="game-layout">
+        <div id="stageWrap" class="stage-wrap">
+          <canvas id="gameCanvas" width="1536" height="1024" aria-label="猫咪合影网格游戏区域"></canvas>
+          <div id="stageHint" class="stage-hint">点击一个猫咪框揭开线索</div>
+        </div>
+        <aside class="control-panel">
+          <div class="panel-kicker">HOW TO PLAY</div>
+          <h3 id="panelTitle">先揭开几块看看</h3>
+          <p id="panelCopy">请揭开 4 块彩色蒙版。揭完后，选择一只猫咪并确认。</p>
+          <div class="legend">
+            <span><i class="legend-mask"></i> 可揭彩色区域</span>
+            <span><i class="legend-pick"></i> 当前选择</span>
+          </div>
+          <div class="guess-card" id="guessCard">
+            <span>当前选择</span>
+            <strong id="guessText">还没有选择</strong>
+          </div>
+          <button id="confirmButton" class="primary-button confirm-button" disabled>确认选择</button>
+          <p class="fine-print">每局只能提交一次，选好了再确认。</p>
+        </aside>
+      </div>
+    </section>
+
+    <div id="resultModal" class="modal" aria-hidden="true">
+      <div class="modal-card">
+        <div id="resultIcon" class="result-icon">🎉</div>
+        <p id="resultKicker" class="eyebrow"></p>
+        <h2 id="resultTitle"></h2>
+        <p id="resultCopy"></p>
+        <button id="playAgainButton" class="primary-button">下一题</button>
+      </div>
+    </div>
+  </main>
+  <script src="app.js"></script>
+  <script src="performance-loader.js"></script>
+</body>
+</html>

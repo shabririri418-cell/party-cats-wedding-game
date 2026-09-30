@@ -1,0 +1,8 @@
+.server.pid
+.final-test.pid
+node_modules/
+playwright-report/
+test-results/
+*.log
+Thumbs.db
+.DS_Store
